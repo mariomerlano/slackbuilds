@@ -100,17 +100,10 @@ fi
 
 sed "s,monospace:size=12,monospace:size=${FONTSIZE:-12},g" -i config.def.h
 
-### Per community request, this section has been restored
-### for those that wish to include custom patches.
-### A sample patch is included in the patches/ directory
-### that will change the default terminal from 'st'
-### to 'uxterm'. -Ryan
-
-if [ "${PATCHES:-no}" = "yes" ]; then
-  for p in $CWD/patches/*; do
-    patch --verbose -p1 < $p
-  done
-fi
+# Iterate over patches
+for p in $CWD/patches/*; do
+  patch --verbose -p1 < $p
+done
 
 mv config.def.h config.h
 
