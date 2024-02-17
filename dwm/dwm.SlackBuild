@@ -98,7 +98,7 @@ fi
 [ "${ROFI:-no}"    = "yes" ] && patch -p1 <$CWD/sbo-patches/replace-dmenu-rofi.diff
 [ "${KEYPAD:-no}"  = "yes" ] && patch -p1 <$CWD/sbo-patches/enable-keypad.diff
 
-sed "s,monospace:size=10,monospace:size=${FONTSIZE:-10},g" -i config.def.h
+sed "s,monospace:size=12,monospace:size=${FONTSIZE:-12},g" -i config.def.h
 
 ### Per community request, this section has been restored
 ### for those that wish to include custom patches.
